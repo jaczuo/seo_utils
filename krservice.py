@@ -67,7 +67,7 @@ def estimated_result_parser(response_data):
     """
     return {
         word: {
-            'pv': str(round(response_data[0]['mobile'][index]['pv'] / 7.0, 2)),
+            'pv': str(round(response_data[0]['mobile'][index]['pv'], 2)),
             'ad_price': response_data[0]['mobile'][index]['bid'],
         }
         for index, word in enumerate(response_data[0]['words'])
@@ -80,7 +80,7 @@ def word_expand_result_parser(response_data):
     """
     return {
         item['word']: {
-            'pv': str(round(item['mobilePV'] / 7.0, 2)),
+            'pv': str(round(item['mobilePV'], 2)),
             'ad_price': item['recBid']
         }
         for item in response_data
